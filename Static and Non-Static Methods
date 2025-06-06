@@ -1,0 +1,26 @@
+class saa{
+
+    	   static void add(int a,int b)
+	    {
+	        System.out.println(a+b);
+	    }
+}
+
+
+public class Main
+{
+    
+    void  mul(int a, int b)
+    {
+        System.out.println(a*b);
+        
+    }
+	public static void main(String[] args) {
+	 
+	    saa.add(5,5);
+	    Main test=new Main();
+	    test.mul(2,3);
+
+	}
+}
+
