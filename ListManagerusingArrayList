@@ -1,0 +1,127 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> array = new ArrayList<>();
+
+        while (true) {
+            System.out.println("-------List Menu--------");
+            System.out.println("1. Adding the data ");
+            System.out.println("2. Get data from specific index ");
+            System.out.println("3. Remove data from specific index ");
+            System.out.println("4. Remove the specific data");
+            System.out.println("5. Find the list size");
+            System.out.println("6. Search");
+            System.out.println("7. Inserting at a specific index");
+            System.out.println("8. List check for empty");
+            System.out.println("9. Find index of data");
+            System.out.println("10. Clear list");
+            System.out.println("11. Display");
+            System.out.println("12. Exit");
+            System.out.println(" --------------------------- ");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter value: ");
+                    int val = sc.nextInt();
+                    array.add(val);
+                    System.out.println("Entered value: " + val);
+                    break;
+
+                case 2:
+                    System.out.println("Enter index:");
+                    int ind2 = sc.nextInt();
+                    if (ind2 >= 0 && ind2 < array.size()) {
+                        System.out.println("Value at index " + ind2 + " is: " + array.get(ind2));
+                    } else {
+                        System.out.println("Invalid index!");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Enter index:");
+                    int ind3 = sc.nextInt();
+                    if (ind3 >= 0 && ind3 < array.size()) {
+                        System.out.println(array.get(ind3) + " is removed from list from index " + ind3);
+                        array.remove(ind3);
+                    } else {
+                        System.out.println("Invalid index!");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Enter the data:");
+                    int valToRemove = sc.nextInt();
+                    boolean removed = array.remove(Integer.valueOf(valToRemove));
+                    if (removed) {
+                        System.out.println("Removed " + valToRemove + " from the list.");
+                    } else {
+                        System.out.println("Value not found in list.");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("List size is: " + array.size());
+                    break;
+
+                case 6:
+                    System.out.print("Enter value to search: ");
+                    int searchVal = sc.nextInt();
+                    if (array.contains(searchVal)) {
+                        System.out.println("Value found in list.");
+                    } else {
+                        System.out.println("Value not found.");
+                    }
+                    break;
+
+                case 7:
+                    System.out.print("Enter index: ");
+                    int index = sc.nextInt();
+                    System.out.print("Enter value: ");
+                    int val1 = sc.nextInt();
+                    if (index >= 0 && index <= array.size()) {
+                        array.add(index, val1);
+                        System.out.println(val1 + " is added at index " + index);
+                    } else {
+                        System.out.println("Invalid index!");
+                    }
+                    break;
+
+                case 8:
+                    System.out.println("List is empty: " + array.isEmpty());
+                    break;
+
+                case 9:
+                    System.out.print("Enter value to find index: ");
+                    int valToFind = sc.nextInt();
+                    int foundIndex = array.indexOf(valToFind);
+                    if (foundIndex != -1) {
+                        System.out.println("The index of " + valToFind + " is " + foundIndex);
+                    } else {
+                        System.out.println("Value not found.");
+                    }
+                    break;
+
+                case 10:
+                    array.clear();
+                    System.out.println("The list is cleared.");
+                    break;
+
+                case 11:
+                    System.out.println("List elements are: " + array);
+                    break;
+
+                case 12:
+                    System.out.println("Exit");
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("Enter a valid choice.");
+            }
+        }
+    }
+}
